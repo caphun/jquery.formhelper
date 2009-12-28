@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>jQuery Form Helper Demo</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.formhelper.js"></script>
+	<script type="text/javascript">
+	
+	jQuery(function($) {
+		
+		$.f.label({name:'foo'}).appendTo('form');
+		$.f.text_field({name:'foo'}).appendTo('form');
+		$.f.hidden({name:'foo'}).appendTo('form');
+		$.f.checkbox({name:'foo'}).appendTo('form');
+		$.f.radio({name:'foo'}).appendTo('form');
+		$.f.password({name:'foo'}).appendTo('form');
+		$.f.textarea({name:'foo'}).appendTo('form');
+		$.f.button({name:'foo'}).appendTo('form');
+		
+	});
+	
+	</script>
+</head>
+<body>
+	<form></form>
+</body>
+</html>
