@@ -28,16 +28,16 @@
 			
 			return $(output);
 		},
-		hidden: function(options) {
+		hidden_field: function(options) {
 			return this.text_field($.extend({ type: 'hidden' }, options));
 		},
-		password: function(options) {
+		password_field: function(options) {
 			return this.text_field($.extend({ type: 'password' }, options));
 		},
-		checkbox: function(options) {
+		check_box: function(options) {
 			return this.text_field($.extend({ type: 'checkbox' }, options));
 		},
-		radio: function(options) {
+		radio_button: function(options) {
 			return this.text_field($.extend({ type: 'radio' }, options));
 		},
 		label: function(options) {
@@ -46,7 +46,7 @@
 		button: function(options) {
 			return $('<button>Button</button>').attr(options);
 		},
-		textarea: function(options) {
+		text_area: function(options) {
 			return $('<textarea></textarea>').attr(options);
 		}
 	}
