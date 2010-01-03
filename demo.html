@@ -8,16 +8,27 @@
 	<script type="text/javascript">
 	
 	jQuery(function($) {
+		// with options hash
+		$('form')
+			.append($.f.label({name:'foo'}))
+			.append($.f.text_field({name:'foo'}))
+			.append($.f.hidden_field({name:'foo'}))
+			.append($.f.check_box({name:'foo'}))
+			.append($.f.radio_button({name:'foo'}))
+			.append($.f.password_field({name:'foo'}))
+			.append($.f.text_area({name:'foo'}))
+			.append($.f.button({name:'foo'}));
 		
-		$.f.label({name:'foo'}).appendTo('form');
-		$.f.text_field({name:'foo'}).appendTo('form');
-		$.f.hidden({name:'foo'}).appendTo('form');
-		$.f.checkbox({name:'foo'}).appendTo('form');
-		$.f.radio({name:'foo'}).appendTo('form');
-		$.f.password({name:'foo'}).appendTo('form');
-		$.f.textarea({name:'foo'}).appendTo('form');
-		$.f.button({name:'foo'}).appendTo('form');
-		
+		// with person object
+		function person() {
+			this.firstname = "John";
+			this.surname = "Doe";
+			
+		}
+
+		$('form')
+			.append($.f.text_field([person, 'firstname']))
+			.append($.f.text_field([person, 'surname']));
 	});
 	
 	</script>

@@ -12,21 +12,20 @@
  */
  
 (function($){
+	var regex1 = /function\s([^\()]+)/i;
 	
 	$.f =  {
 		text_field: function(options) {
+			if ($.isArray(options) && options.length == 2) {
+				options = {'name': regex1.exec(options[0])[1] + '['+ options[1] +']' }
+			}
+			
 			options = $.extend({
+				id: this._sanitizeId(options['name']),
 				type: 'text'
 			}, options);
 			
-			var output = '<input id="'+options.name+'"';
-			
-			// loop through the options array to find attributes
-			for (var i in options) { output += ' '+ i +'="'+ options[i] +'"'; }
-			
-			output += ' />';
-			
-			return $(output);
+			return  $('<input>').attr(options);
 		},
 		hidden_field: function(options) {
 			return this.text_field($.extend({ type: 'hidden' }, options));
@@ -48,6 +47,11 @@
 		},
 		text_area: function(options) {
 			return $('<textarea></textarea>').attr(options);
+		},
+		_sanitizeId: function(string) {
+			return string.replace(/\[|\]/g, function(match) {
+				return {'[': '_', ']': ''}[match];
+			});
 		}
 	}
 	
