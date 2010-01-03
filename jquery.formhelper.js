@@ -40,10 +40,10 @@
 			return this.text_field($.extend({ type: 'radio' }, options));
 		},
 		label: function(options) {
-			return $('<label>'+ options.name +'</label>');
+			return $('<label></label>').html(options.name);
 		},
 		button: function(options) {
-			return $('<button>Button</button>').attr(options);
+			return $('<button></button>').attr(options).html('Button');
 		},
 		text_area: function(options) {
 			return $('<textarea></textarea>').attr(options);
