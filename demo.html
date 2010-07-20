@@ -9,15 +9,17 @@
 	
 	jQuery(function($) {
 		// with options hash
+		var $f = new $.formhelper({ wrap: '<p></p>' });
+
 		$('form')
-			.append($.f.label({name:'foo'}))
-			.append($.f.text_field({name:'foo'}))
-			.append($.f.hidden_field({name:'foo'}))
-			.append($.f.check_box({name:'foo'}))
-			.append($.f.radio_button({name:'foo'}))
-			.append($.f.password_field({name:'foo'}))
-			.append($.f.text_area({name:'foo'}))
-			.append($.f.button({name:'foo'}));
+			.append( $f.label({name:'foo[bar]'}) )
+			.append( $f.text({name:'foo[bar]'}) )
+			.append( $f.hidden({name:'foo[bar]'}) )
+			.append( $f.checkbox({name:'foo[bar]'}) )
+			.append( $f.radio({name:'foo[bar]'}) )
+			.append( $f.password({name:'foo[bar]'}) )
+			.append( $f.textarea({name:'foo[bar]' }) )
+			.append( $f.button({name:'foo_bar'}) );
 		
 		// with person object
 		function person() {
@@ -26,9 +28,10 @@
 			
 		}
 
+        var $f2 = new $.formhelper();
 		$('form')
-			.append($.f.text_field([person, 'firstname']))
-			.append($.f.text_field([person, 'surname']));
+			.append( $f2.text( [ person, 'firstname' ] ) )
+			.append( $f2.text( [ person, 'surname' ] ) );
 	});
 	
 	</script>
